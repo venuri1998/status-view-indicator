@@ -1,18 +1,19 @@
 import * as React from 'react';
 
-import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'status-view-indicator';
+import { StyleSheet, View, Dimensions } from 'react-native';
+import { StatusViewIndicator } from 'status-view-indicator';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
-
-  React.useEffect(() => {
-    multiply(3, 7).then(setResult);
-  }, []);
+  const win = Dimensions.get('window');
 
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <StatusViewIndicator
+        storyCount={5}
+        viewCount={3}
+        imgUrl="https://via.placeholder.com/200"
+        windowWidth={win.width}
+      />
     </View>
   );
 }
