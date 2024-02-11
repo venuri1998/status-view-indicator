@@ -14,14 +14,14 @@ const styles = (props: StyleProps) => {
       height: props.windowWidth / 5.4,
       marginLeft: 0,
     },
-    imageContainer: {
+    viewContainer: {
       alignItems: 'center',
       justifyContent: 'center',
       position: 'relative',
       width: props.windowWidth / 6.5,
       height: props.windowWidth / 6.5,
     },
-    image: {
+    childContainer: {
       width: '100%',
       height: '100%',
       alignItems: 'center',

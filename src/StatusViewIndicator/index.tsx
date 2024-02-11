@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { View, Image } from 'react-native';
+import { View } from 'react-native';
 import Svg, { Circle } from 'react-native-svg';
 import styles from './styles';
 
@@ -10,13 +10,14 @@ const StatusViewIndicator: React.FC<{
   imgUrl?: string;
   activeStrokeColor?: string;
   inActiveStrokeColor?: string;
+  children: React.ReactNode;
 }> = ({
   storyCount,
   viewCount,
-  imgUrl,
   windowWidth,
   activeStrokeColor,
   inActiveStrokeColor,
+  children,
 }) => {
   const styleProps = useMemo(
     () => ({
@@ -54,13 +55,8 @@ const StatusViewIndicator: React.FC<{
 
   return (
     <View style={styles(styleProps).container} testID="story-bubble">
-      <View style={styles(styleProps).imageContainer}>
-        <Image
-          resizeMode="cover"
-          source={{ uri: imgUrl }}
-          style={styles(styleProps).image}
-          testID="story-bubble-fast-image"
-        />
+      <View style={styles(styleProps).viewContainer}>
+        <View style={styles(styleProps).childContainer}>{children}</View>
       </View>
       <View
         style={{
