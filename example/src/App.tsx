@@ -1,6 +1,7 @@
+/* eslint-disable react-native/no-inline-styles */
 import * as React from 'react';
 
-import { StyleSheet, View, Dimensions } from 'react-native';
+import { StyleSheet, View, Dimensions, Image } from 'react-native';
 import { StatusViewIndicator } from 'status-view-indicator';
 
 export default function App() {
@@ -8,12 +9,13 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <StatusViewIndicator
-        storyCount={5}
-        viewCount={3}
-        imgUrl="https://via.placeholder.com/200"
-        windowWidth={win.width}
-      />
+      <StatusViewIndicator storyCount={5} viewCount={3} windowWidth={win.width}>
+        <Image
+          resizeMode="cover"
+          source={{ uri: 'https://via.placeholder.com/200' }}
+          style={{ width: '100%', height: '100%', borderRadius: 100 }}
+        />
+      </StatusViewIndicator>
     </View>
   );
 }
